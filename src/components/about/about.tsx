@@ -22,7 +22,7 @@ export default function About() {
     }
 
     return (
-        <section className="py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <section className="py-16 bg-black from-black to-red-950/10">
             <div className="max-w-6xl mx-auto px-4">
 
                 {/* Texte de présentation */}
