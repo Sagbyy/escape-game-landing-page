@@ -13,6 +13,13 @@ export default function MainFooter() {
     message: "",
   })
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -87,7 +94,7 @@ export default function MainFooter() {
           <div className="lg:col-span-1">
             <h3 className="text-xl font-bold text-red-500 mb-6 uppercase tracking-wide">Nous Contacter</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
-
+    
             </form>
           </div>
         </div>
