@@ -1,25 +1,8 @@
 "use client"
-
-import { useState } from "react"
 import { Icon } from "@iconify/react"
 
 export default function About() {
-    const [currentSlide, setCurrentSlide] = useState(0)
 
-    // Images du carrousel (remplacez par vos vraies images)
-    const carouselImages = [
-        "/placeholder.svg?height=400&width=800",
-        "/placeholder.svg?height=400&width=800",
-        "/placeholder.svg?height=400&width=800",
-    ]
-
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % carouselImages.length)
-    }
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)
-    }
 
     return (
         <section className="py-16 bg-black from-black to-red-950/10">
