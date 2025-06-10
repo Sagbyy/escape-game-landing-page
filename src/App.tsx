@@ -1,3 +1,4 @@
+import About from "./components/about/about";
 import MainFooter from "./components/footer/main-footer";
 import Introduction from "./components/introduction";
 import Navbar from "./components/Navbar";
@@ -8,6 +9,7 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Navbar />
       <Introduction />
+      <About/>
       <MainFooter />
     </ThemeProvider>
   );
