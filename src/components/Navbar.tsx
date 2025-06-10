@@ -3,11 +3,11 @@ import { useState } from "react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,14 +52,21 @@ export default function Navbar() {
             className="text-2xl"
           />
         </SheetTrigger>
-        <SheetContent side="left" className="bg-zinc-950 !text-white">
+        <SheetContent
+          aria-describedby={undefined}
+          side="left"
+          className="bg-zinc-950 !text-white"
+        >
           <SheetHeader>
-            <SheetTitle className="flex items-center gap-2">
+            <VisuallyHidden>
+              <SheetTitle>La Maison Horifique</SheetTitle>
+            </VisuallyHidden>
+            <div className="flex items-center gap-2">
               <Icon icon="token:ghost" className="text-2xl text-red-600" />
               <h1 className="text-2xl font-bold">La Maison Horifique</h1>
-            </SheetTitle>
+            </div>
           </SheetHeader>
-          <SheetDescription>
+          <div className="flex flex-col gap-4">
             <ol className="flex px-4 flex-col gap-4 text-md text-white">
               <li>
                 <a href="#sessions">Sessions</a>
@@ -76,7 +83,7 @@ export default function Navbar() {
                 </a>
               </li>
             </ol>
-          </SheetDescription>
+          </div>
         </SheetContent>
       </Sheet>
     </nav>

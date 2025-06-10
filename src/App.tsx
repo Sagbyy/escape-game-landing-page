@@ -1,9 +1,9 @@
 import About from "./components/about/about";
 import MainFooter from "./components/footer/main-footer";
 import Introduction from "./components/introduction";
-import Navbar from "./components/Navbar";
-import { ThemeProvider } from "./components/utils/theme-provider";
+import Navbar from "./components/navbar";
 import SessionsPreview from "./components/sessions-preview";
+import { ThemeProvider } from "./components/utils/theme-provider";
 
 function App() {
   return (
