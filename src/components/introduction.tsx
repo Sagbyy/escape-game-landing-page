@@ -79,7 +79,7 @@ export default function Introduction() {
           variants={itemVariants}
         >
           {
-            "Dare to enter the realm of terror. Four immersive escape experiences await those brave enough to face their deepest fears."
+            "Défiez vos peurs. Quatre expériences immersives vous attendent. Vous êtes prêt à vous lancer ?"
           }
         </motion.p>
         <motion.div
