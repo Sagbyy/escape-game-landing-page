@@ -5,49 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-
-const sessions = [
-  {
-    id: "escape-paris",
-    title: "Escape Paris",
-    description:
-      "Vous êtes un agent de police chargé de résoudre un crime. Vous devez trouver le coupable avant qu'il ne s'échappe.",
-    duration: "60 min",
-    players: "3-6",
-    difficulty: "Moyen",
-    image: "/escape-paris.jpg",
-  },
-  {
-    id: "escape-time-cops",
-    title: "Escape Time Cops",
-    description:
-      "Vous êtes un agent de police chargé de résoudre un crime. Vous devez trouver le coupable avant qu'il ne s'échappe.",
-    duration: "75 min",
-    players: "4-8",
-    difficulty: "Difficile",
-    image: "/escape-time-cops.jpg",
-  },
-  {
-    id: "jack-the-ripper",
-    title: "Jack The Ripper",
-    description:
-      "Vous êtes un agent de police chargé de résoudre un crime. Vous devez trouver le coupable avant qu'il ne s'échappe.",
-    duration: "90 min",
-    players: "2-5",
-    difficulty: "Expert",
-    image: "/jack-the-ripper.jpg",
-  },
-  {
-    id: "opera",
-    title: "Opera",
-    description:
-      "Vous êtes un agent de police chargé de résoudre un crime. Vous devez trouver le coupable avant qu'il ne s'échappe.",
-    duration: "60 min",
-    players: "4-10",
-    difficulty: "Moyen",
-    image: "/opera.jpg",
-  },
-];
+import { sessions } from "@/data/sessions";
 
 export default function SessionsPreview() {
   const [currentSession, setCurrentSession] = useState(0);
@@ -126,13 +84,13 @@ export default function SessionsPreview() {
               >
                 <Card className="bg-red-950/20 border-red-900/30 overflow-hidden">
                   <div className="grid md:grid-cols-2 gap-0">
-                    <div className="relative h-96 md:h-auto">
+                    <div className="relative h-full">
                       <img
                         src={
                           sessions[currentSession].image || "/placeholder.svg"
                         }
                         alt={sessions[currentSession].title}
-                        className="object-cover"
+                        className="object-cover w-full h-full"
                       />
                       <div className="absolute inset-0" />
                       <Badge className="absolute top-4 right-4 bg-red-700 text-white">
