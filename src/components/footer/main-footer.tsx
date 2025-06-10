@@ -24,7 +24,7 @@ export default function MainFooter() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Logique de soumission du formulaire
-    alert("Formulaire soumis:" +  formData)
+    alert("Formulaire soumis:" + formData)
     // Reset du formulaire après soumission
     setFormData({ name: "", email: "", subject: "", message: "" })
   }
