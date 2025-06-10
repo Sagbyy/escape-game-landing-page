@@ -51,10 +51,6 @@ export default function MainFooter() {
                   height="20"
                   className="text-red-400 mt-1 flex-shrink-0"
                 />
-                <div>
-                  <h4 className="font-semibold text-white">Certifications</h4>
-                  <p className="text-gray-300 text-sm">ISO 9001 • Qualibat • RGE</p>
-                </div>
               </div>
             </div>
           </div>
@@ -281,9 +277,6 @@ export default function MainFooter() {
               </a>
               <a href="/politique-confidentialite" className="hover:text-red-400 transition-colors duration-300">
                 Politique de confidentialité
-              </a>
-              <a href="/cgv" className="hover:text-red-400 transition-colors duration-300">
-                CGV
               </a>
             </div>
           </div>
