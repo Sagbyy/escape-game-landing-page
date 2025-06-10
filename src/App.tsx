@@ -10,6 +10,8 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Navbar />
       <Introduction />
+      <SessionsPreview />
+      <About/>
       <MainFooter />
     </ThemeProvider>
   );
