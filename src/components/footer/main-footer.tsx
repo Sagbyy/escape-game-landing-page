@@ -4,21 +4,36 @@ export default function mainFooter() {
     return (
         <>
             <footer>
-                {/*social media section */}
                 <div>
-                
-                </div>
-                {/*detail session */}
-                <div>
+                    {/*social media section */}
+                    <div>
+                        <h3>Nos Réseaux :</h3>
+                        <a href="">facebook</a>
+                        <a href="">Instagram</a>
+                        <a href="">Snapchat</a>
+                    </div>
+                    {/*detail session */}
+                    <div>
+                        <h3>Détail session:</h3>
+                        <a href="">accéder au detail</a>
+                    </div>
+                    {/*Contact form */}
+                    <div>
+                        <h3>Nous contacter</h3>
+                        <form action="">
+                            <input type="text" name="" id="" placeholder="Entrer votre Nom"/>
+                            <input type="text" name="" id="" placeholder="Entrer votre Email" />
+                            <input type="text" name="" id="" placeholder="Sujet"/>
 
-                </div>
-                {/*Contact form */}
-                <div>
+                            <textarea name="" id="" placeholder="Votre message">
 
-                </div>
-                {/*Copyright*/}
-                <div>
-
+                            </textarea>
+                        </form>
+                    </div>
+                    {/*Copyright*/}
+                    <div>
+                        <p>&copy; 2025 Tous droit réservés à la maison H mon pote </p>
+                    </div>
                 </div>
             </footer>
         </>
