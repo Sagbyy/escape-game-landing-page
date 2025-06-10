@@ -87,7 +87,15 @@ export default function MainFooter() {
 
           {/* Section Détail Session */}
           <div className="space-y-4">
-
+            <h3 className="text-xl font-bold text-red-500 mb-6 uppercase tracking-wide">Détail Session :</h3>
+            <a
+              href="/session-details"
+              className="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-all duration-300 font-semibold shadow-lg hover:shadow-red-500/25 hover:scale-105 border border-red-500"
+              aria-label="Accéder aux détails de session"
+            >
+              <Icon icon="material-symbols:info-outline" width="18" height="18" />
+              <span>Accéder au détail</span>
+            </a>
           </div>
 
           {/* Formulaire de Contact */}
