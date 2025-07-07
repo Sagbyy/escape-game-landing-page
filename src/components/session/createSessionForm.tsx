@@ -1,14 +1,7 @@
+import type { Session } from "@/types/session";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-export interface Session {
-  id: string;
-  theme: string;
-  duree: string;
-  prix: number;
-  nb_participant: number;
-  crenaux_dispo: string;
-}
 
 export default function CreateSessionForm() {
   const [form, setForm] = useState<Session>({

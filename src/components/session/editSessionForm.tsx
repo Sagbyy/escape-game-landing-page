@@ -1,7 +1,7 @@
+import type { Session } from "@/types/session";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
-import type { Session } from "./createSessionForm";
 
 export default function EditSessionForm() {
 
