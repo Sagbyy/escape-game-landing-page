@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-interface Session {
+export interface Session {
+  id: string;
   theme: string;
   duree: string;
   prix: number;
@@ -11,6 +12,7 @@ interface Session {
 
 export default function CreateSessionForm() {
   const [form, setForm] = useState<Session>({
+    id: Date.now().toString(),
     theme: "",
     duree: "",
     prix: 0,
@@ -48,6 +50,7 @@ export default function CreateSessionForm() {
 
       toast.success("Votre session a été créée avec succès !");
       setForm({
+        id:"",
         theme: "",
         duree: "",
         prix: 0,

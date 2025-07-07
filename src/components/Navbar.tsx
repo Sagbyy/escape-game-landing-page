@@ -27,7 +27,7 @@ export default function Navbar() {
               <a href="#sessions">Sessions</a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <a href="/contact">Contact</a>
             </li>
             <li>
               <a
