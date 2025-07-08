@@ -1,4 +1,6 @@
-export default function ContactForm(){
+import ContactForm from "@/components/contact/contactForm";
+
+export default function ContactPage(){
     
     return(
         <div className="p-6">
