@@ -28,6 +28,9 @@ export default function Navbar() {
               <a href="#sessions">Sessions</a>
             </li>
             <li>
+              <Link to="/testPage">test</Link>
+            </li>
+                   <li>
               <Link to="/contact">Contact</Link>
             </li>
             <li>
