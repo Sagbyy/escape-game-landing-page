@@ -8,9 +8,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 export default function Navbar() {
+
+  const location = useLocation();
+  const isHome = location.pathname === "/"
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -25,12 +28,17 @@ export default function Navbar() {
         <div className="md:flex items-center gap-4">
           <ol className="flex items-center gap-4">
             <li>
-              <a href="#sessions">Sessions</a>
+              <a href="/">Acceuil</a>
             </li>
+            {isHome && (
+              <li>
+                <a href="#sessions">Sessions</a>
+              </li>
+            )}
             <li>
               <Link to="/testPage">test</Link>
             </li>
-                   <li>
+            <li>
               <Link to="/contact">Contact</Link>
             </li>
             <li>

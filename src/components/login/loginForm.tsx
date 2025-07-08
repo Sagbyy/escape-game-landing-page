@@ -40,33 +40,37 @@ export default function LoginForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-4 p-6 text-white bg-black border border-red-600 rounded max-w-md mx-auto mt-12"
-    >
-      <h2 className="text-2xl text-red-500">Connexion Employé</h2>
 
-      <input
-        name="email"
-        type="email"
-        value={form.email}
-        onChange={handleChange}
-        placeholder="Email"
-        className="w-full p-2 bg-gray-900 border border-red-500 rounded"
-      />
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 p-6 text-white bg-black border border-red-600 rounded max-w-md mx-auto mt-12"
+      >
+        <h2 className="text-2xl text-red-500">Connexion Employé</h2>
 
-      <input
-        name="password"
-        type="password"
-        value={form.password}
-        onChange={handleChange}
-        placeholder="Mot de passe"
-        className="w-full p-2 bg-gray-900 border border-red-500 rounded"
-      />
+        <input
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          placeholder="Email"
+          className="w-full p-2 bg-gray-900 border border-red-500 rounded"
+        />
 
-      <button type="submit" className="bg-red-600 px-4 py-2 rounded hover:bg-red-700 w-full">
-        Se connecter
-      </button>
-    </form>
+        <input
+          name="password"
+          type="password"
+          value={form.password}
+          onChange={handleChange}
+          placeholder="Mot de passe"
+          className="w-full p-2 bg-gray-900 border border-red-500 rounded"
+        />
+
+        <button type="submit" className="bg-red-600 px-4 py-2 rounded hover:bg-red-700 w-full">
+          Se connecter
+        </button>
+      </form>
+    </>
+
   );
 }
