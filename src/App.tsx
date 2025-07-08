@@ -3,10 +3,9 @@ import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./components/utils/theme-provider";
 import { Route, Routes } from "react-router";
 import MainContent from "./pages/MainContent";
-import ContactForm from "./components/contact/contactForm";
-import LoginForm from "./components/login/loginForm";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
+import TestPage from "./pages/TestPage";
 
 function App() {
   return (
@@ -16,6 +15,7 @@ function App() {
         <Route path="/" element={<MainContent />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/testPage" element={<TestPage />} />
       </Routes>
       <MainFooter />
     </ThemeProvider>
