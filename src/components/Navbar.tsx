@@ -1,106 +1,47 @@
-import { Icon } from "@iconify/react";
-import { useState } from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
-
-  const location = useLocation();
-  const isHome = location.pathname === "/"
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   return (
-    <nav className="bg-zinc-950 flex justify-between items-center p-4 text-white h-16">
-      <div className="md:flex hidden w-full justify-between">
-        <div className="flex items-center gap-2">
-          <Icon icon="token:ghost" className="text-2xl text-red-600" />
-          <h1 className="text-2xl font-bold">La Maison Horifique</h1>
-        </div>
+    <nav className="bg-black text-white p-4 border-b border-red-600">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-xl font-bold text-red-500">
+          La Maison Horrifique
+        </Link>
 
-        {/* Menu desktop */}
-        <div className="md:flex items-center gap-4">
-          <ol className="flex items-center gap-4">
-            <li>
-              <a href="/">Acceuil</a>
-            </li>
-            {isHome && (
-              <li>
-                <a href="#sessions">Sessions</a>
-              </li>
-            )}
-            <li>
-              <Link to="/testPage">test</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <a
-                className="bg-red-600 px-4 py-2 rounded-md hover:bg-red-700 transition-colors duration-300"
-                href="#book-now"
+        <div className="flex items-center space-x-6">
+          <Link to="/" className="hover:text-red-500">
+            Accueil
+          </Link>
+          <Link to="/sessions" className="hover:text-red-500">
+            Sessions
+          </Link>
+          <Link to="/contact" className="hover:text-red-500">
+            Contact
+          </Link>
+
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <span className="text-red-500">{user.name}</span>
+              <button
+                onClick={logout}
+                className="bg-red-600 px-4 py-2 rounded hover:bg-red-700"
               >
-                Réserver Maintenant
-              </a>
-            </li>
-          </ol>
+                Déconnexion
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="bg-red-600 px-4 py-2 rounded hover:bg-red-700"
+            >
+              Connexion
+            </Link>
+          )}
         </div>
       </div>
-
-      {/* Bouton hamburger pour mobile */}
-      <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-        <SheetTrigger
-          className="md:hidden text-white"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <Icon
-            icon={isMenuOpen ? "mdi:close" : "mdi:menu"}
-            className="text-2xl"
-          />
-        </SheetTrigger>
-        <SheetContent
-          aria-describedby={undefined}
-          side="left"
-          className="bg-zinc-950 !text-white"
-        >
-          <SheetHeader>
-            <VisuallyHidden>
-              <SheetTitle>La Maison Horifique</SheetTitle>
-            </VisuallyHidden>
-            <div className="flex items-center gap-2">
-              <Icon icon="token:ghost" className="text-2xl text-red-600" />
-              <h1 className="text-2xl font-bold">La Maison Horifique</h1>
-            </div>
-          </SheetHeader>
-          <div className="flex flex-col gap-4">
-            <ol className="flex px-4 flex-col gap-4 text-md text-white">
-              <li>
-                <a href="#sessions">Sessions</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
-              <li className="flex justify-center text-center">
-                <a
-                  className="bg-red-600 mt-2 px-4 w-full py-2 rounded-md hover:bg-red-700 transition-colors duration-300"
-                  href="#book-now"
-                >
-                  Réserver Maintenant
-                </a>
-              </li>
-            </ol>
-          </div>
-        </SheetContent>
-      </Sheet>
     </nav>
   );
 }

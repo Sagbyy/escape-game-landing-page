@@ -1,7 +1,7 @@
 import MainFooter from "./components/footer/main-footer";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./components/utils/theme-provider";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import MainContent from "./pages/MainContent";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
