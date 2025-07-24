@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useAuth } from "../../context/AuthContext";
 
 interface LoginFormState {
   email: string;
@@ -7,10 +8,12 @@ interface LoginFormState {
 }
 
 export default function LoginForm() {
+  const { login } = useAuth();
   const [form, setForm] = useState<LoginFormState>({
     email: "",
-    password: ""
+    password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,36 +21,59 @@ export default function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (!form.email || !form.password) {
       toast.error("Veuillez remplir tous les champs.");
+      setIsLoading(false);
       return;
     }
 
     try {
       const res = await fetch("/api/login", {
         method: "POST",
-        body: JSON.stringify(form)
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
       });
 
-      if (!res.ok) throw new Error("Identifiants incorrects");
-
       const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Identifiants incorrects");
+      }
+
       toast.success(`Bienvenue, ${data.user}!`);
+
+      login({
+        name: data.user,
+        token: data.token,
+      });
+
+      setForm({ email: "", password: "" });
     } catch (error) {
-      toast.error(`Erreur : ${error}`);
+      if (error instanceof Error) {
+        toast.error(`Erreur : ${error.message}`);
+      } else {
+        toast.error("Une erreur est survenue");
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 p-6 text-white bg-black border border-red-600 rounded max-w-md mx-auto mt-12"
+    >
+      <h2 className="text-2xl text-red-500">Connexion Employé</h2>
+      <p className="text-sm text-gray-400">
+        Test: email: test@example.com / password: password123
+      </p>
 
-    <>
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4 p-6 text-white bg-black border border-red-600 rounded max-w-md mx-auto mt-12"
-      >
-        <h2 className="text-2xl text-red-500">Connexion Employé</h2>
-
+      <div className="space-y-2">
         <input
           name="email"
           type="email"
@@ -55,6 +81,7 @@ export default function LoginForm() {
           onChange={handleChange}
           placeholder="Email"
           className="w-full p-2 bg-gray-900 border border-red-500 rounded"
+          disabled={isLoading}
         />
 
         <input
@@ -64,13 +91,21 @@ export default function LoginForm() {
           onChange={handleChange}
           placeholder="Mot de passe"
           className="w-full p-2 bg-gray-900 border border-red-500 rounded"
+          disabled={isLoading}
         />
+      </div>
 
-        <button type="submit" className="bg-red-600 px-4 py-2 rounded hover:bg-red-700 w-full">
-          Se connecter
-        </button>
-      </form>
-    </>
-
+      <button
+        type="submit"
+        disabled={isLoading}
+        className={`w-full px-4 py-2 rounded ${
+          isLoading
+            ? "bg-red-800 cursor-not-allowed"
+            : "bg-red-600 hover:bg-red-700"
+        }`}
+      >
+        {isLoading ? "Connexion..." : "Se connecter"}
+      </button>
+    </form>
   );
 }
