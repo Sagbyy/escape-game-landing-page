@@ -4,8 +4,8 @@ import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Sheet } from "../components/ui/sheet";
-import CreateEmployeeForm from "../components/employees/createEmployeeForm";
-import EditEmployeeForm from "../components/employees/editEmployeeForm";
+import CreateEmployeeForm from "../components/employees/create-employee-form";
+import EditEmployeeForm from "../components/employees/edit-employee-form";
 
 export default function EmployeesPage() {
   const [employees, setEmployees] = useState<Employee[]>([]);

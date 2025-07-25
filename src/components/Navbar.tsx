@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ModeToggle } from "./utils/theme-provider";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/auth-context";
 import { Button } from "./ui/button";
 
 export default function Navbar() {
@@ -52,15 +52,41 @@ export default function Navbar() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link
+                to="/sessions"
+                className="block py-2 px-3 text-foreground rounded hover:bg-accent md:hover:bg-transparent md:hover:text-accent md:p-0"
+              >
+                Sessions
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/bookings"
+                className="block py-2 px-3 text-foreground rounded hover:bg-accent md:hover:bg-transparent md:hover:text-accent md:p-0"
+              >
+                Réservations
+              </Link>
+            </li>
             {user && (
-              <li>
-                <Link
-                  to="/employees"
-                  className="block py-2 px-3 text-foreground rounded hover:bg-accent md:hover:bg-transparent md:hover:text-accent md:p-0"
-                >
-                  Employés
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link
+                    to="/employees"
+                    className="block py-2 px-3 text-foreground rounded hover:bg-accent md:hover:bg-transparent md:hover:text-accent md:p-0"
+                  >
+                    Employés
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/createSession"
+                    className="block py-2 px-3 text-foreground rounded hover:bg-accent md:hover:bg-transparent md:hover:text-accent md:p-0"
+                  >
+                    Créer une session
+                  </Link>
+                </li>
+              </>
             )}
           </ul>
         </div>

@@ -1,4 +1,4 @@
-import EditSessionForm from "@/components/session/editSessionForm";
+import EditSessionForm from "@/components/session/edit-session-form";
 
 export default function EditSessionPage(){
     return(
