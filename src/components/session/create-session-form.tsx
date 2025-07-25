@@ -127,7 +127,7 @@ export default function CreateSessionForm() {
       }
 
       toast.success("Session créée avec succès !");
-      navigate("/sessions"); // Redirection vers la liste des sessions
+      navigate("/sessions");
     } catch (error) {
       console.error("Error creating session:", error);
       toast.error(
@@ -136,7 +136,6 @@ export default function CreateSessionForm() {
     }
   };
 
-  // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -144,7 +143,7 @@ export default function CreateSessionForm() {
   }, [user, navigate]);
 
   if (!user) {
-    return null; // Évite le flash du formulaire pendant la redirection
+    return null;
   }
 
   return (

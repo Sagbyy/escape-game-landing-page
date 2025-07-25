@@ -1,5 +1,5 @@
 import MainFooter from "./components/footer/main-footer";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import { ThemeProvider } from "./components/utils/theme-provider";
 import { Route, Routes } from "react-router-dom";
 import MainContent from "./pages/main-content";
